@@ -2,7 +2,7 @@ struct Edge { int a, b, c; };
 bool operator<(Edge e1, Edge e2) { return e1.c < e2.c; }
 OD(Edge) { return os << make_pair(PII(x.a, x.b), x.c); }
 
-struct MST {
+class MST {
     V<Edge> edges, mst;
     int n;
 
@@ -11,6 +11,7 @@ struct MST {
     void onion(int a, int b) { lead[find(a)] = find(b); }
     bool same(int a, int b) { return find(a) == find(b); }
 
+public:
     MST(V<Edge> &edg, int m) : edges(edg), n(m) {
         sort(ALL(edges));
         lead.RS(n);
