@@ -1,5 +1,6 @@
 struct Edge { int a, b, c; };
 bool operator<(Edge e1, Edge e2) { return e1.c < e2.c; }
+OD(Edge) { return os << make_pair(PII(x.a, x.b), x.c); }
 
 struct MST {
     V<Edge> edges, mst;
@@ -13,6 +14,8 @@ struct MST {
     MST(V<Edge> &edg, int m) : edges(edg), n(m) {
         sort(ALL(edges));
         lead.RS(n);
+        REP(i, n)
+            lead[i] = i;
         for(Edge e : edges)
             if(!same(e.a, e.b)) {
                 mst.EB(e);
