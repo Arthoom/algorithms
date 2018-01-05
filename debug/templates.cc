@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define FOR(i,a,n) for (decltype(n) i = (a), i##__ = (n); i <= i##__; ++i)
+#define FOR(i,a,n) for (auto i = (a), i##__ = (n); i <= i##__; ++i)
 #define REP(i,n) FOR(i,0,(n)-1)
-#define FORD(i,a,n) for (decltype(a) i = (a), i##__ = (n); i >= i##__; --i)
+#define FORD(i,a,n) for (auto i = (a), i##__ = (n); i >= i##__; --i)
 #define REPD(i,n) FORD(i,(n)-1,0)
 #define ALL(x) x.begin(), x.end()
 #define EB emplace_back
@@ -17,35 +17,35 @@ template<class T, class B> void mini(T &&a, B &&b) { if (b < a) a = b; }
 template<class T, class B> void maxi(T &&a, B &&b) { if (b > a) a = b; }
 int pow2(int x) { return x < 2 ? 0 : sizeof(x) * 8 - __builtin_clz(x - 1); }
 
-#define NSTR(a...) typename enable_if<!is_same<string, typename remove_reference<T>::type>::value, a>::type()
-#define TMP(func, a...) template<class T> auto func(T &&x) -> decltype(a)
+#define _S(zn, a...) typename enable_if<is_same<a, typename remove_reference<T>::type>::value zn 1, int>::type()
+#define _F(func, a...) template<class T> auto func(T &&x) -> decltype(a)
 template<class T> struct Off { T __a, __b; };
-TMP(O, NSTR(Off<decltype(x.begin())>)) { return {x.begin(), x.end()}; }
-TMP(O, cerr << x, x) { return x; }
-TMP(O, x.first, x) { return x; }
-#define OP operator<<
-#define TH *this
+_F(O, _S(!=, string), Off<decltype(x.begin())>()) { return {x.begin(), x.end()}; }
+_F(O, cerr << x, x) { return x; }
+_F(O, x.first, x) { return x; }
+#define _OP(a...) _F(operator<<, a, *this)
+#define RTH return *this
 struct Debug {
     ~Debug() { cerr << nl; }
-    Debug& operator()(int x = 0) { REP(a, x+1) cout << "  "; return TH; }
-    TMP(OP, cerr << x, TH) { cerr << O(x); return TH; }
-    TMP(OP, x.begin(), NSTR(int), TH) {
+    Debug& operator()(int x = 0) { REP(a, x+1) cout << "  "; RTH; }
+    _OP(cerr << x) { cerr << O(x); RTH; }
+    _OP(x.begin(), _S(!=, string)) {
         cerr <<  "{\n";
         for (auto a = x.begin(); a != x.end(); ++a)
-            TH << "  " << distance(x.begin(), a) << ": " << O(*a) << '\n';
-        return TH << "}";
+            *this << "  " << distance(x.begin(), a) << ": " << O(*a) << '\n';
+        RTH << "}";
     }
-    TMP(OP, x.first, TH) { return TH << "(" << O(x.first) << ", " << O(x.second) << ")"; }
-    TMP(OP, x.__a, TH) {
+    _OP(x.first) { RTH << "(" << O(x.first) << ", " << O(x.second) << ")"; }
+    _OP(x.__a) {
         cerr << "{";
         for (auto a = x.__a, b = x.__b; a != b; ++a)
-            TH << O(*a) << (next(a) == b ? "" : ", ");
-        return TH << "}";
+            *this << O(*a) << (next(a) == b ? "" : ", ");
+        RTH << "}";
     }
 };
 struct DebugOff { 
-    template<class T> DebugOff& operator<<(T&&) { return TH; }
-    DebugOff& operator()(int = 0) { return TH; }
+    template<class T> DebugOff& operator<<(T&&) { RTH; }
+    DebugOff& operator()(int = 0) { RTH; }
 };
 #ifdef DEBUG
 # define D Debug()
@@ -55,7 +55,7 @@ struct DebugOff {
 # define DD(...)
 #endif
 #define I(a...) #a ": " << a << "   "
-#define TD(T, a...) Debug& operator<<(Debug &d, T &x) { a; return d; }
+#define TD(C, a...) _F(O, _S(==, C), x) { return x; } Debug& operator<<(Debug &d, C &x) { a; return d; }
 
 using VI    = V<int>;
 using VVI   = V<VI>;
@@ -67,10 +67,3 @@ using VVPII = V<VPII>;
 using VB    = V<bool>;
 
 //end of templates
-
-int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    
-}
