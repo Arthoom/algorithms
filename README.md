@@ -1,3 +1,3 @@
 # algorithms
 
-Wszystkie algorytmy, które skodziłem od ONTAKA 2017.
+Trochę tam śmiesznych rzeczy
