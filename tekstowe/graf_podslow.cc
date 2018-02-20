@@ -6,6 +6,7 @@
 // http://codeforces.com/blog/entry/22420 ( https://drive.google.com/file/d/0B0BBPCmtPbIcbVFsSG9qeTI1TjA/view )
 // https://saisumit.wordpress.com/2016/01/26/suffix-automaton/
 // http://e-maxx.ru/algo/suffix_automata (najlepsze, ale po rusku. Dwa powyższe linki mocno bazują na tym)
+// ruski link to też jedyne miejsce, gdzie jest udowodniona liniowość algorytmu
 
 
 // benchmarki konstrukcji
