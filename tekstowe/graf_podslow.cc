@@ -27,6 +27,9 @@
 // jakieś customowe wielkości alfabetu sami sobie sprawdzajcie, macie kod:
 
 
+#include <bits/stdc++.h>
+using namespace std;
+
 struct SuffixAutomaton {
     static constexpr int sigma = 26;  // wielkość alfabetu
     using Node = array<int, sigma>;
