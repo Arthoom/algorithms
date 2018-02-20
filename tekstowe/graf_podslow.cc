@@ -14,14 +14,14 @@
 // długość słowa 10^7, sprawdzane na moim kompie (czyli na szybkim)
 
 // wielkość alfabetu: 2
-// mapa:              15.0s
-// unordered_mapa:    14.4s
-// std::array:         1.7s
+// mapa:              15.0s   2011mB = 1.96gB
+// unordered_mapa:    14.4s   2155mB = 2.10gB
+// std::array:         1.7s    631mB = 0.61gB
 
 // wielkość alfabetu: 26
-// mapa:               7.0s
-// unordered_mapa:    10.8s
-// std::array:         4.4s
+// mapa:               7.0s   1238mB = 1.20gB
+// unordered_mapa:    10.8s   1207mB = 1.17gB
+// std::array:         4.4s   2615mB = 2.55gB
 
 // wniosek: jak wielkość alfabetu <= 26, używaj std::array
 
