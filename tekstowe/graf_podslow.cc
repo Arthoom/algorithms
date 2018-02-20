@@ -84,8 +84,8 @@ struct SuffixAutomaton {
         //   (w tekstówkach, zawsze zmieniam stringa od razu na vectora intów)
     }
 
-    bool is_inside(string &s) {  // prosta, przykładowa funkcja, która sprawdza,
-        int q = 0;               // czy dane słowo jest podsłowem naszego słowa
+    bool is_inside(vector<int> &s) {  // prosta, przykładowa funkcja, która sprawdza,
+        int q = 0;                    // czy dane słowo jest podsłowem naszego słowa
         for(int c : s)
             if(edges[q][c] == -1)
                 return false;
