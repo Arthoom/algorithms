@@ -16,7 +16,7 @@
 // wielkość alfabetu: 2
 // mapa:              15.0s
 // unordered_mapa:    14.4s
-// std::array:         4.4s
+// std::array:         1.7s
 
 // wielkość alfabetu: 26
 // mapa:               7.0s
