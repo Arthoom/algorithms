@@ -20,7 +20,7 @@ int pow2(int x) { return x < 2 ? 0 : sizeof(x) * 8 - __builtin_clz(x - 1); }
 #define _S(zn, a...) typename enable_if<is_same<a, typename remove_reference<T>::type>::value zn 1, int>::type()
 #define _F(func, a...) template<class T> auto func(T &&x) -> decltype(a)
 template<class T> struct Off { T __a, __b; };
-_F(O, _S(!=, string), Off<decltype(x.begin())>()) { return {x.begin(), x.end()}; }
+_F(O, _S(!=, string), Off<decltype(x.begin())>()) { return {ALL(x)}; }
 _F(O, cerr << x, x) { return x; }
 _F(O, x.first, x) { return x; }
 #define _OP(a...) _F(operator<<, a, *this)
